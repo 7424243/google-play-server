@@ -1,10 +1,12 @@
 const express = require('express')
 const morgan = require('morgan')
 const playstore = require('./playstore-data')
+const cors = require('cors')
 
 const app = express()
 
 app.use(morgan('common'))
+app.use(cors())
 
 app.get('/apps', (req, res) => {
     const {sort='', genres=''} = req.query
