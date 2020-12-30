@@ -11,12 +11,12 @@ app.use(cors())
 app.get('/apps', (req, res) => {
     const {sort='', genres=''} = req.query
     if(sort) {
-        if(!['rating', 'app']) {
+        if(!['rating', 'app'].includes(sort)) {
             return res.status(400).send('Sort must be one of rating or app')
         }
     }
     if(genres) {
-        if(!['Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card']) {
+        if(!['Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card'].includes(genres)) {
             return res.status(400).send('Genres must be one of the following: Action, Puzzle, Strategy, Casual, Arcade, or Card.')
         }
     }
